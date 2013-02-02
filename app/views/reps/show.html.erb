@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Count:</b>
+  <%= @rep.count %>
+</p>
+
+<p>
+  <b>Weight:</b>
+  <%= @rep.weight %>
+</p>
+
+<p>
+  <b>Lift:</b>
+  <%= @rep.lift_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_rep_path(@rep) %> |
+<%= link_to 'Back', reps_path %>

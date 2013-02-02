@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  # signs user in or redirect
   before_filter :authenticate_user!
 
   def index
