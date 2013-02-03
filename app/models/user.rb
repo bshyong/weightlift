@@ -2,7 +2,7 @@ class User
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  has_many_related :lifts
+  has_many :lifts
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
