@@ -25,3 +25,4 @@ gem "binding_of_caller", ">= 0.6.8", :group => :development
 gem "haml"
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'nokogiri'

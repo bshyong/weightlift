@@ -248,6 +248,7 @@ DEPENDENCIES
   launchy (>= 2.1.2)
   mongoid (>= 3.0.19)
   mongoid-rspec (>= 1.6.0)
+  nokogiri
   omniauth
   omniauth-facebook
   quiet_assets (>= 1.0.1)
