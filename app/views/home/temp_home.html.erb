@@ -19,37 +19,21 @@
     <table class="twelve">
   <thead>
     <tr>
-      <th>Table Header</th>
-      <th>Table Header</th>
-      <th>Table Header</th>
-      <th>Table Header</th>
+      <th>Activity</th>
+      <th>Weight</th>
+      <th>Reps</th>
+      <th>Cumulative Weight</th>
     </tr>
   </thead>
   <tbody>
+    <% @rows.each do |r| %>
     <tr>
-      <td>Content</td>
-      <td>This is longer content</td>
-      <td>Content</td>
+      <td><%= r[0] %></td>
+      <td><%= r[1] %></td>
+      <td><%= r[2] %></td>
       <td>Content</td>
     </tr>
-    <tr>
-      <td>Content</td>
-      <td>This is longer content</td>
-      <td>Content</td>
-      <td>Content</td>
-    </tr>
-    <tr>
-      <td>Content</td>
-      <td>This is longer content</td>
-      <td>Content</td>
-      <td>Content</td>
-    </tr>
-    <tr>
-      <td>Content</td>
-      <td>This is longer content</td>
-      <td>Content</td>
-      <td>Content</td>
-    </tr>
+    <% end %>
   </tbody>
 </table>
 </div>
