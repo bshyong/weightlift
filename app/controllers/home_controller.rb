@@ -12,9 +12,13 @@ class HomeController < ApplicationController
     doc = Nokogiri::XML(open(url))
     doc.remove_namespaces!
     @rows = []
+    @total_weight = 0
     puts doc.xpath('/feed/entry/content').length.to_s + "total elements"
     doc.xpath('/feed/entry/content').each do |x|
-        @rows << x.children()[0].content().split(',').collect{|d| d.split(':')[1]}
+        content = x.children()[0].content().split(',').collect{|d| d.split(':')[1].strip}
+        @rows << (content << content[1].to_i*content[2].to_i)
+        @total_weight += content[1].to_i*content[2].to_i
+        puts @total_weight
     end
 
     render layout: "no_nav"
