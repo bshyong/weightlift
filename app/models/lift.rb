@@ -9,6 +9,6 @@ class Lift
   belongs_to :user, inverse_of: :lifts
 
   validates_presence_of :name
-  validates_uniquness_of :name
+  validates_uniqueness_of :name
 
 end
