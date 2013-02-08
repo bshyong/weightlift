@@ -5,7 +5,7 @@ class Lift
   field :name, type: String
   field :description, type: String
   has_many :reps
-  has_key :name, unique: true
+
   belongs_to :user, inverse_of: :lifts
 
   validates_presence_of :name
