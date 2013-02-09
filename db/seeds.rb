@@ -10,3 +10,13 @@
 puts 'DEFAULT USERS'
 user = User.create! :name => ENV['ADMIN_NAME'].dup, :email => ENV['ADMIN_EMAIL'].dup, :password => ENV['ADMIN_PASSWORD'].dup, :password_confirmation => ENV['ADMIN_PASSWORD'].dup
 puts 'user: ' << user.name
+
+puts 'DEFAULT QUOTES'
+[ "If it doesn't challenge you, it doesn't change you.",
+  "Success is the sum of many small actions.",
+  "Respect the training. Honor the commitment. Cherish the results.",
+  "Strong is what happens when you run out of weak."
+].each do |q|
+    quote = Quote.create! :content => q
+    puts 'quote: ' << quote.content
+end
