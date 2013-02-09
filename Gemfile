@@ -26,3 +26,6 @@ gem "haml"
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'nokogiri'
+group :development do
+    gem 'thin'
+end
