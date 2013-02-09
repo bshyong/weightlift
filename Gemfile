@@ -28,4 +28,5 @@ gem 'omniauth-facebook'
 gem 'nokogiri'
 group :development do
     gem 'thin'
+    gem 'meta_request'
 end

@@ -5,7 +5,6 @@ class HomeController < ApplicationController
   end
 
   def temp_home
-
     require 'open-uri'
     require 'nokogiri'
     url = "https://spreadsheets.google.com/feeds/list/0AhERslPRRahKdFl6UFZoQTh2UVdXLXBPTDlVS1dqanc/od6/public/basic"
