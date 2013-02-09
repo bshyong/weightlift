@@ -26,6 +26,8 @@ gem "haml"
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'nokogiri'
+gem 'newrelic_rpm'
+
 group :development do
     gem 'thin'
     gem 'meta_request'
