@@ -39,7 +39,7 @@ end
 @rows.each do |r|
     lift = Lift.find_or_create_by(name: r[0])
     puts 'lift: ' << lift.name
-    r = user.reps.create(weight: r[1], count: r[2])
+    r = User.first.reps.create(weight: r[1], count: r[2])
     lift.reps << r
     puts "rep: #{r.count} reps @ #{r.weight} lbs"
 end
