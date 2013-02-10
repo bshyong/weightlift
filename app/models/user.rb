@@ -61,7 +61,7 @@ class User
 
   # downcases username and removes non alphanumerics
   def build_username_slug
-    self.username_slug = self.username.downcase
+    self.username_slug = self.username.delete(' ').downcase
   end
 
 end
