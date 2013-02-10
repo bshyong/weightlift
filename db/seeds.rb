@@ -8,7 +8,7 @@
 # Environment variables (ENV['...']) are set in the file config/application.yml.
 # See http://railsapps.github.com/rails-environment-variables.html
 puts 'DEFAULT USERS'
-user = User.find_or_create_by(:username => ENV['ADMIN_NAME'].dup, :email => ENV['ADMIN_EMAIL'].dup, :password => ENV['ADMIN_PASSWORD'].dup, :password_confirmation => ENV['ADMIN_PASSWORD'].dup)
+user = User.create!(:username => ENV['ADMIN_NAME'].dup, :email => ENV['ADMIN_EMAIL'].dup, :password => ENV['ADMIN_PASSWORD'].dup, :password_confirmation => ENV['ADMIN_PASSWORD'].dup)
 puts 'user: ' << user.username
 
 puts 'DEFAULT QUOTES'
@@ -39,7 +39,7 @@ end
 @rows.each do |r|
     lift = Lift.find_or_create_by(name: r[0])
     puts 'lift: ' << lift.name
-    r = User.first.reps.create(weight: r[1], count: r[2])
+    r = user.reps.create(weight: r[1], count: r[2])
     lift.reps << r
     puts "rep: #{r.count} reps @ #{r.weight} lbs"
 end
