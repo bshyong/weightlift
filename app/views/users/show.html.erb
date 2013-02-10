@@ -1,10 +1,30 @@
-
 <div class="row">
     <div class="twelve columns">
-        <h4><%= @user.name %> is a champion.</h4>
-        <p>What have you conquered today?</p>
-        <p>
-
-        </p>
+        <div class="panel">
+          <i><%= Quote.all.sample().content %></i>
+        </div>
+        <h4><%= @user.name %> has completed <%= @user.reps.sum(:count).to_i %> reps.</h4>
+        <table class="twelve">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Activity</th>
+              <th>Weight</th>
+              <th>Reps</th>
+              <th>Cumulative Weight</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @reps.each do |r| %>
+                <tr>
+                  <td><%= r.created_at.strftime("%a %b %d") %></td>
+                  <td><%= r.lift.name %></td>
+                  <td><%= r.weight %></td>
+                  <td><%= r.count %></td>
+                  <td><%= r.weight*r.count %></td>
+                </tr>
+            <% end %>
+          </tbody>
+        </table>
     </div>
 </div>

@@ -4,6 +4,7 @@ class Lift
 
   field :name, type: String
   field :description, type: String
+
   has_many :reps
   accepts_nested_attributes_for :reps
 

@@ -1,8 +1,49 @@
 <div class="row">
     <div class="twelve columns">
-        <h3>Welcome</h3>
+        <div class="panel">
+        <i><%= Quote.all.sample().content %></i>
+        </div>
           <% if user_signed_in? %>
 
+            <div class="row">
+                <div class="twelve columns">
+                    <h4><%= link_to @user.name, @user %> is a champion.</h4>
+                    <p>What have you conquered today?</p>
+                    <p>
+                        <%= form_tag controller: 'home', action: 'track' do %>
+                            <%= label_tag :name %>
+                            <%= text_field_tag :name %>
+                            <%= label_tag "weight (lbs)" %>
+                            <%= text_field_tag :weight %>
+                            <%= label_tag "reps" %>
+                            <%= text_field_tag :count %>
+                            <%= submit_tag "Win the day", class: "button" %>
+                        <% end %>
+                    </p>
+                </div>
+            </div>
+            <table class="twelve">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Activity</th>
+                  <th>Weight</th>
+                  <th>Reps</th>
+                  <th>Cumulative Weight</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @reps.each do |r| %>
+                    <tr>
+                      <td><%= r.created_at.strftime("%a %b %d") %></td>
+                      <td><%= r.lift.name %></td>
+                      <td><%= r.weight %></td>
+                      <td><%= r.count %></td>
+                      <td><%= r.weight*r.count %></td>
+                    </tr>
+                <% end %>
+              </tbody>
+            </table>
           <% else %>
           Please <%= link_to 'log in', new_user_session_path %> or <%= link_to 'sign up', new_user_registration_path %>
           <% end %>

@@ -16,24 +16,24 @@
 </div>
 
 <div class="row">
-    <table class="twelve">
-  <thead>
-    <tr>
-      <th>Activity</th>
-      <th>Weight</th>
-      <th>Reps</th>
-      <th>Cumulative Weight</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @rows.each do |r| %>
-    <tr>
-      <td><%= r[0] %></td>
-      <td><%= r[1] %></td>
-      <td><%= r[2] %></td>
-      <td><%= r[3] %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+  <table class="twelve">
+    <thead>
+      <tr>
+        <th>Activity</th>
+        <th>Weight</th>
+        <th>Reps</th>
+        <th>Cumulative Weight</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @rows.each do |r| %>
+      <tr>
+        <td><%= r[0] %></td>
+        <td><%= r[1] %></td>
+        <td><%= r[2] %></td>
+        <td><%= r[3] %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>

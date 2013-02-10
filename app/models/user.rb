@@ -2,7 +2,8 @@ class User
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  has_many :lifts
+  has_many :reps
+  accepts_nested_attributes_for :reps
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
@@ -46,7 +47,19 @@ class User
   # field :authentication_token, :type => String
   # run 'rake db:mongoid:create_indexes' to create indexes
   index({ email: 1 }, { unique: true, background: true })
-  field :name, :type => String
-  validates_presence_of :name
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :created_at, :updated_at
+  field :username, :type => String
+  validates_presence_of :username
+  validates_format_of :username, :with => /^[A-Za-z\d]+$/, :message => ": Only letters and digits, please!"
+
+  field :username_slug, :type => String
+
+  attr_accessible :username, :email, :password, :password_confirmation, :remember_me, :created_at, :updated_at
+
+  before_save :build_username_slug
+
+  # downcases username and removes non alphanumerics
+  def build_username_slug
+    self.username_slug = self.username.downcase
+  end
+
 end

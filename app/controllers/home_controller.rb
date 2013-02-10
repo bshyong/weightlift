@@ -1,7 +1,17 @@
 class HomeController < ApplicationController
+  before_filter :authenticate_user!, :only => [:track]
 
   def index
+    if signed_in?
+        @user = current_user
+        @reps = current_user.reps.recent.limit(5)
+    end
+  end
 
+  def track
+    lift = Lift.find_or_create_by(name: params[:name])
+    current_user.reps << lift.reps.create(count: params[:count], weight: params[:count])
+    redirect_to :root
   end
 
   def temp_home
