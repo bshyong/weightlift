@@ -3,7 +3,7 @@
         <div class="panel">
           <i><%= Quote.all.sample().try(:content) %></i>
         </div>
-        <h4><%= @user.name %> has completed <%= @user.reps.sum(:count).to_i %> reps.</h4>
+        <h4><%= @user.username %> has completed <%= @user.reps.sum(:count).to_i %> reps.</h4>
         <table class="twelve">
           <thead>
             <tr>
