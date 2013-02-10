@@ -1,7 +1,7 @@
 <div class="row">
     <div class="twelve columns">
         <div class="panel">
-        <i><%= Quote.all.sample().content %></i>
+        <i><%= Quote.all.sample().try(:content) %></i>
         </div>
           <% if user_signed_in? %>
 
