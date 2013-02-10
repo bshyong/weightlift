@@ -29,8 +29,8 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'nokogiri'
 gem 'newrelic_rpm'
+gem 'thin'
 
 group :development do
-    gem 'thin'
     gem 'meta_request'
 end
