@@ -47,9 +47,11 @@ class User
   # field :authentication_token, :type => String
   # run 'rake db:mongoid:create_indexes' to create indexes
   index({ email: 1 }, { unique: true, background: true })
+  index({ username: 1 }, { unique: true, background: true })
   field :username, :type => String
   validates_presence_of :username
   validates_format_of :username, :with => /^[A-Za-z\d]+$/, :message => ": Only letters and digits, please!"
+  validates_uniqueness_of :username, :case_sensitive => false
 
   field :username_slug, :type => String
 

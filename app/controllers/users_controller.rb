@@ -11,12 +11,11 @@ class UsersController < ApplicationController
     begin
       @user = User.find(params[:id])
     rescue
-      @user.where(:name)
+      @user = User.where(username_slug: params[:id]).first
     ensure
-
+      redirect_to :root and return if @user.blank?
+      @reps = @user.reps.recent
     end
-
-    @reps = @user.reps.recent
   end
 
 end
