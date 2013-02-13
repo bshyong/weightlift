@@ -76,7 +76,7 @@ class RepsController < ApplicationController
     @rep.destroy
 
     respond_to do |format|
-      format.html { redirect_to reps_url }
+      format.html { redirect_to @rep.user }
       format.json { head :no_content }
     end
   end

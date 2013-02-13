@@ -1,6 +1,8 @@
 Rails3MongoidDevise::Application.routes.draw do
   resources :quotes
 
+  resources :reps
+
   resources :lifts do
       resources :reps
   end

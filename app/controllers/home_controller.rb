@@ -9,8 +9,14 @@ class HomeController < ApplicationController
   end
 
   def track
+    if params[:name].blank? || params[:count].blank? || params[:weight].blank?
+      flash.now[:alert] = "Something went wrong!  Please try again."
+      @user = current_user
+      @reps = current_user.reps.recent.limit(5)
+      render 'index' and return
+    end
     lift = Lift.find_or_create_by(name: params[:name])
-    current_user.reps << lift.reps.create(count: params[:count], weight: params[:count])
+    current_user.reps << lift.reps.create(count: params[:count], weight: params[:weight])
     redirect_to :root
   end
 

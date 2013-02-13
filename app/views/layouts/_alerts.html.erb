@@ -1,0 +1,10 @@
+<% flash.each do |key, value| %>
+    <div class="row alert">
+        <div class="twelve columns">
+            <%= content_tag(:div, :class => "alert-box #{key}") do %>
+                <%= value %>
+                <a href="" class="close">&times;</a>
+            <% end %>
+        </div>
+    </div>
+<% end %>

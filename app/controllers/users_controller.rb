@@ -15,6 +15,7 @@ class UsersController < ApplicationController
     ensure
       redirect_to :root and return if @user.blank?
       @reps = @user.reps.recent
+      @total_weight = @user.reps.sum(:total_weight)
     end
   end
 

@@ -27,9 +27,13 @@
   <body class="<%= controller_name %> <%= action_name %>">
     <div id="container" class="container">
       <header class="row">
-      	<div class="six columns centered">
+      	<div class="eight columns centered">
 	        <%= render 'layouts/navigation' %>
-	        <%= render 'layouts/messages' %>
+	        <%#= render 'layouts/messages' %>
+          <div class="panel">
+          <i><%= Quote.all.sample().try(:content) %></i>
+          </div>
+          <%= render 'layouts/alerts' %>
    	    </div>
       </header>
       <div id="main" role="main" class="row">

@@ -14,7 +14,7 @@
   <tr>
     <td><%= rep.count %></td>
     <td><%= rep.weight %></td>
-    <td><%= rep.lift_id %></td>
+    <td><%= Lift.find(rep.lift_id).name %></td>
     <td><%= link_to 'Show', rep %></td>
     <td><%= link_to 'Edit', edit_rep_path(rep) %></td>
     <td><%= link_to 'Destroy', rep, method: :delete, data: { confirm: 'Are you sure?' } %></td>
