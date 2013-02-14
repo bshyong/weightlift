@@ -64,4 +64,17 @@ class User
     self.username_slug = self.username.delete(' ').downcase
   end
 
+  def top_lifts_by_rep_count(limit = 4)
+    raise "Parameter must be an Integer!" unless limit.kind_of? Integer
+    lifts = Hash.new
+    self.reps.each do |x|
+      begin
+        lifts[x.lift.name] += x.count
+      rescue
+        lifts[x.lift.name] ||= x.count
+      end
+    end
+    lifts.sort{|a,b| b[1] <=> a[1]}.take(limit)
+  end
+
 end

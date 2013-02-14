@@ -17,6 +17,7 @@ class UsersController < ApplicationController
       @reps = @user.reps.recent
       @total_weight = @user.reps.sum(:total_weight)
       # @lifts = @user.reps.map(&:lift).map(&:name).occurence_count.sort{|a,b| b[1] <=> a[1]}
+      @lifts = @user.top_lifts_by_rep_count(4)
     end
   end
 
