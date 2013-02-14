@@ -16,6 +16,7 @@ class UsersController < ApplicationController
       redirect_to :root and return if @user.blank?
       @reps = @user.reps.recent
       @total_weight = @user.reps.sum(:total_weight)
+      # @lifts = @user.reps.map(&:lift).map(&:name).occurence_count.sort{|a,b| b[1] <=> a[1]}
     end
   end
 

@@ -83,4 +83,5 @@ module Rails3MongoidDevise
     # config.assets.prefix = "/assets"
 
   end
+
 end

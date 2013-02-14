@@ -9,7 +9,6 @@ class HomeController < ApplicationController
   end
 
   def track
-
     if params[:name].blank? || params[:count].blank? || params[:weight].blank?
       flash.now[:alert] = "Something went wrong!  Please try again."
       @user = current_user
