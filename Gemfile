@@ -30,6 +30,8 @@ gem 'omniauth-facebook'
 gem 'nokogiri'
 gem 'newrelic_rpm'
 gem 'thin'
+gem 'kaminari'
+
 
 group :development do
     gem 'meta_request'
