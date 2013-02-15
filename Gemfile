@@ -31,6 +31,7 @@ gem 'nokogiri'
 gem 'newrelic_rpm'
 gem 'thin'
 gem 'kaminari'
+gem 'merit'
 
 
 group :development do
