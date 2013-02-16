@@ -31,7 +31,7 @@ gem 'nokogiri'
 gem 'newrelic_rpm'
 gem 'thin'
 gem 'kaminari'
-gem 'merit'
+gem 'rails3-jquery-autocomplete'
 
 
 group :development do

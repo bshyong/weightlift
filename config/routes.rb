@@ -4,7 +4,7 @@ Rails3MongoidDevise::Application.routes.draw do
   resources :reps
 
   resources :lifts do
-      resources :reps
+    resources :reps
   end
 
 
