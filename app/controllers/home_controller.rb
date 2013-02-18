@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   before_filter :authenticate_user!, :only => [:track]
 
-  autocomplete :lift, :name, :full => true
+  autocomplete :lift, :name, :full => true, :display_value => :capitalized_name
 
   def index
     if signed_in?

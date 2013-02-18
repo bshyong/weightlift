@@ -15,4 +15,10 @@ class Lift
 
   index({ name: 1 }, { unique: true, background: true })
 
+  private
+
+  def capitalized_name
+    name.titleize
+  end
+
 end
