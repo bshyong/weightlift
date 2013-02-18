@@ -9,7 +9,7 @@
                     <p>
                         <%= form_tag controller: 'home', action: 'track' do %>
                             <%= label_tag :name %>
-                            <%= text_field_tag :name, '', :autocomplete => home_autocomplete_lift_name_path %>
+                            <%= autocomplete_field_tag :name, '',home_autocomplete_lift_name_path %>
                             <%= label_tag "weight (lbs)" %>
                             <%= text_field_tag :weight %>
                             <%= label_tag "reps" %>

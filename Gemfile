@@ -31,7 +31,7 @@ gem 'nokogiri'
 gem 'newrelic_rpm'
 gem 'thin'
 gem 'kaminari'
-gem 'rails3-jquery-autocomplete'
+gem 'rails3-jquery-autocomplete', :git => 'git://github.com/edsimpson/rails3-jquery-autocomplete.git'
 gem 'nifty-generators'
 
 

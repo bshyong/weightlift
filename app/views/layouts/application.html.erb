@@ -5,41 +5,42 @@
 <!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
 <head>
-	<meta charset="utf-8" />
+  <meta charset="utf-8" />
 
-	<!-- Uncomment to make IE8 render like IE7 -->
-	<!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
+  <!-- Uncomment to make IE8 render like IE7 -->
+  <!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
 
-	<!-- Set the viewport width to device width for mobile -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<title><%= content_for?(:title) ? yield(:title) : "Move Mountains" %></title>
-	<meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Track your effort" %>">
+  <title><%= content_for?(:title) ? yield(:title) : "Move Mountains" %></title>
+  <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Track your effort" %>">
 
-	<!-- Included CSS Files -->
-	<%= stylesheet_link_tag "application", :media => "all" %>
+  <!-- Included CSS Files -->
+  <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.8/themes/ui-lightness/jquery-ui.css" %>
 
-	<!-- Included JS Files  -->
-	<%= javascript_include_tag "application" %>
-	<%= csrf_meta_tags %>
-	<%= yield(:head) %>
+  <!-- Included JS Files  -->
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <%= yield(:head) %>
 </head>
   <body class="<%= controller_name %> <%= action_name %>">
     <div id="container" class="container">
       <header class="row">
-      	<div class="eight columns centered">
-	        <%= render 'layouts/navigation' %>
-	        <%#= render 'layouts/messages' %>
+        <div class="eight columns centered">
+          <%= render 'layouts/navigation' %>
+          <%#= render 'layouts/messages' %>
           <div class="panel">
           <i><%= Quote.all.sample().try(:content) %></i>
           </div>
           <%= render 'layouts/alerts' %>
-   	    </div>
+        </div>
       </header>
       <div id="main" role="main" class="row">
-      	<div class="eight columns centered">
-	        <%= yield %>
-	    </div>
+        <div class="eight columns centered">
+          <%= yield %>
+      </div>
       </div>
       <footer>
       </footer>
