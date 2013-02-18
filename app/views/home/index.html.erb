@@ -5,7 +5,7 @@
                 <div class="twelve columns">
                     <%= @script.try(:html_safe) %>
                     <h4><%= link_to @user.username, @user %> is a champion.</h4>
-                    <p>What have you conquered today?</p>
+                    <p>Happy <%= Date.today.strftime("%A") %>.  What have you conquered today?</p>
                     <p>
                         <%= form_tag controller: 'home', action: 'track' do %>
                             <%= label_tag :name %>
