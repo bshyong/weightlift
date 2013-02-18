@@ -1,63 +1,75 @@
 <div class="row">
-    <div class="twelve columns">
-        <div class="row">
-          <div class="twelve columns">
-            <h4><%= @user.username %> has lifted <%= pluralize(number_with_delimiter(@total_weight.to_i), "pound") %>.
-            </h4>
-            <ul class="inline-list">
-              <li><span class="subheader">Moving mountains since <%= @user.created_at.strftime("%b %e, %Y") %></span></li>
-              <li><span class="subheader">Total reps: <%= Integer(@user.reps.sum(:count)) %></span></li>
-            </ul>
+  <div class="twelve columns">
+    <div class="row">
+      <div class="twelve columns">
+        <div class="row collapse">
+          <div class="two mobile-one columns">
+            <span class="prefix">Public url:</span>
+          </div>
+          <div class="ten mobile-three columns">
+            <%= text_field_tag "public_url", user_url(@user.username_slug), :onfocus => "this.select()", :onMouseUp => "return false", :readonly => true %>
           </div>
         </div>
-        <div class="row">
-          <div class="twelve columns">
-            <span class="subheader">Progress towards one million pounds:</span>
-            <div class="radius progress twelve round">
-              <span style="float:right;"><%= (@total_weight/1000000*100).round(1) %>%</span>
-              <span class="meter" style="width:<%= @total_weight/1000000*91 %>%;"></span>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="twelve columns">
-            <h6>Top four by rep count</h6>
-            <ul class="inline-list">
-              <% @lifts.each do |k, v| %>
-                <li><span class="subheader"><%= k %> (<%= v %>)</span></li>
-              <% end %>
-            </ul>
-          </div>
-        </div>
-        <div class="row">
-          <table class="twelve">
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>Activity</th>
-                <th>Weight</th>
-                <th>Reps</th>
-                <th>Cumulative Weight</th>
-                <%= content_tag :th, "Actions", colspan: 1 if @user == current_user %>
-              </tr>
-            </thead>
-            <tbody>
-              <% @reps.each do |r| %>
-                  <tr>
-                    <td><%= r.created_at.strftime("%a %b %d") %></td>
-                    <td><%= r.lift.name %></td>
-                    <td><%= r.weight %></td>
-                    <td><%= r.count %></td>
-                    <td><%= r.total_weight %></td>
-                    <% if @user == current_user %>
-                      <td>
-                        <%= link_to 'Delete', r, method: :delete, data: { confirm: 'Are you sure?' } %>
-                      </td>
-                    <% end %>
-                  </tr>
-              <% end %>
-            </tbody>
-          </table>
-        </div>
+      </div>
     </div>
+    <div class="row">
+      <div class="twelve columns">
+        <h4><%= @user.username %> has lifted <%= pluralize(number_with_delimiter(@total_weight.to_i), "pound") %>.
+        </h4>
+        <ul class="inline-list">
+          <li><span class="subheader">Moving mountains since <%= @user.created_at.strftime("%b %e, %Y") %></span></li>
+          <li><span class="subheader">Total reps: <%= Integer(@user.reps.sum(:count)) %></span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="twelve columns">
+        <span class="subheader">Progress towards one million pounds:</span>
+        <div class="radius progress twelve round">
+          <span style="float:right;"><%= (@total_weight/1000000*100).round(1) %>%</span>
+          <span class="meter" style="width:<%= @total_weight/1000000*91 %>%;"></span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="twelve columns">
+        <h6>Top four by rep count</h6>
+        <ul class="inline-list">
+          <% @lifts.each do |k, v| %>
+            <li><span class="subheader"><%= k %> (<%= v %>)</span></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <table class="twelve">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Activity</th>
+            <th>Weight</th>
+            <th>Reps</th>
+            <th>Cumulative Weight</th>
+            <%= content_tag :th, "Actions", colspan: 1 if @user == current_user %>
+          </tr>
+        </thead>
+        <tbody>
+          <% @reps.each do |r| %>
+              <tr>
+                <td><%= r.created_at.strftime("%a %b %d") %></td>
+                <td><%= r.lift.name %></td>
+                <td><%= r.weight %></td>
+                <td><%= r.count %></td>
+                <td><%= r.total_weight %></td>
+                <% if @user == current_user %>
+                  <td>
+                    <%= link_to 'Delete', r, method: :delete, data: { confirm: 'Are you sure?' } %>
+                  </td>
+                <% end %>
+              </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
