@@ -13,4 +13,6 @@ class Lift
   validates_presence_of :name
   validates_uniqueness_of :name
 
+  index({ name: 1 }, { unique: true, background: true })
+
 end

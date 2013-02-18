@@ -32,6 +32,7 @@ gem 'newrelic_rpm'
 gem 'thin'
 gem 'kaminari'
 gem 'rails3-jquery-autocomplete'
+gem 'nifty-generators'
 
 
 group :development do

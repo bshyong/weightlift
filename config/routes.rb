@@ -13,6 +13,7 @@ Rails3MongoidDevise::Application.routes.draw do
   end
   root :to => "home#index"
   match 'test', :to => "home#temp_home"
+  get 'home/autocomplete_lift_name'
 
   match 'track', :to => 'home#track'
 

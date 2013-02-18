@@ -1,4 +1,3 @@
-
 class GoogleDoc
     include Mongoid::Document
     self.mass_assignment_sanitizer = :strict
