@@ -3,6 +3,8 @@ class HomeController < ApplicationController
 
   autocomplete :lift, :name, :full => true, :display_value => :capitalized_name
 
+  include ActionView::Helpers::JavaScriptHelper
+
   def index
     if signed_in?
         @user = current_user
@@ -11,27 +13,23 @@ class HomeController < ApplicationController
   end
 
   def track
-      flash.now[:alert] = "Something went wrong!  Please try again."
+    begin
       @user = current_user
       @reps = current_user.reps.recent.limit(5)
-      render 'index' and return
-
-    begin
-      name = params[:name].to_i
-      count = params[:count].to_i
-      weight = params[:weight].to_i
+      name = params[:name]
+      raise "Name cannot be blank!" if name.blank?
+      count = Integer(params[:count])
+      weight = Integer(params[:weight])
     rescue
       flash.now[:alert] = "Something went wrong!  Please try again."
-      @user = current_user
-      @reps = current_user.reps.recent.limit(5)
       render 'index' and return
     end
-
-    lift = Lift.find_or_create_by(name: params[:name])
-    rep = lift.reps.create(count: params[:count], weight: params[:weight])
+    lift = Lift.find_or_create_by(name: name)
+    rep = lift.reps.create(count: count, weight: weight)
     current_user.reps << rep
-    flash[:success] = "Success! #{rep.count} reps of #{lift.name} @ #{rep.weight} lbs each for a total of #{rep.total_weight} lbs."
-    redirect_to :root
+    @script = "<script>function repeatLift(){$('#name').val('#{escape_javascript(name)}');$('#count').val(#{count.to_json});$('#weight').val(#{weight.to_json});}</script>"
+    flash[:success] = "Success! #{rep.count} reps of #{lift.name} @ #{rep.weight} lbs each for a total of #{rep.total_weight} lbs. [<a href='#' onclick='repeatLift();'>Repeat</a>]".html_safe
+    render 'index'
   end
 
   def temp_home

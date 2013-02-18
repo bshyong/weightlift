@@ -1,9 +1,9 @@
 <div class="row">
     <div class="twelve columns">
           <% if user_signed_in? %>
-
             <div class="row">
                 <div class="twelve columns">
+                    <%= @script.try(:html_safe) %>
                     <h4><%= link_to @user.username, @user %> is a champion.</h4>
                     <p>What have you conquered today?</p>
                     <p>

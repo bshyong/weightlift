@@ -19,13 +19,17 @@ pre {
 }
 
 a {
+  cursor:pointer;
   color: #000;
-  &:visited {
-    color: #666;
-  }
   &:hover {
     color: #fff;
     background-color: #000;
+  }
+}
+
+div.alert-box{
+  a{
+    color:#fff;
   }
 }
 
@@ -35,9 +39,6 @@ div {
   }
 }
 
-#notice {
-  color: green;
-}
 
 .field_with_errors {
   padding: 2px;
