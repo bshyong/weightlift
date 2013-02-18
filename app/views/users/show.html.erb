@@ -38,7 +38,7 @@
                 <th>Weight</th>
                 <th>Reps</th>
                 <th>Cumulative Weight</th>
-                <%= content_tag :th, "Actions", colspan: 2 if @user == current_user %>
+                <%= content_tag :th, "Actions", colspan: 1 if @user == current_user %>
               </tr>
             </thead>
             <tbody>
@@ -51,10 +51,7 @@
                     <td><%= r.total_weight %></td>
                     <% if @user == current_user %>
                       <td>
-                        <%= link_to 'Edit', edit_rep_path(r) %>
-                      </td>
-                      <td>
-                        <%= link_to 'Destroy', r, method: :delete, data: { confirm: 'Are you sure?' } %>
+                        <%= link_to 'Delete', r, method: :delete, data: { confirm: 'Are you sure?' } %>
                       </td>
                     <% end %>
                   </tr>
