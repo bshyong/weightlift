@@ -19,7 +19,7 @@ class HomeController < ApplicationController
       name = params[:name]
       raise "Name cannot be blank!" if name.blank?
       count = Integer(params[:count])
-      weight = Integer(params[:weight])
+      weight = Float(params[:weight])
     rescue
       flash.now[:alert] = "Something went wrong!  Please try again."
       render 'index' and return
