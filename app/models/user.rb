@@ -4,7 +4,7 @@ class User
 
   has_many :reps
   accepts_nested_attributes_for :reps
-  embeds_many :badges
+  has_and_belongs_to_many :badges
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,

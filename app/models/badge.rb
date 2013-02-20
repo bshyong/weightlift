@@ -1,7 +1,7 @@
 class Badge
   include Mongoid::Document
 
-  embedded_in :user
+  has_and_belongs_to_many :users
 
   field :name, type: String
   field :point_value, type: Integer
