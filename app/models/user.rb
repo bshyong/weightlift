@@ -49,6 +49,8 @@ class User
   # run 'rake db:mongoid:create_indexes' to create indexes
   index({ email: 1 }, { unique: true, background: true })
   index({ username: 1 }, { unique: true, background: true })
+  index "badges.name" => 1
+
   field :username, :type => String
   validates_presence_of :username
   validates_format_of :username, :with => /^[A-Za-z\d]+$/, :message => ": Only letters and digits, please!"
