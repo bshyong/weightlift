@@ -2,13 +2,6 @@ source 'https://rubygems.org'
 
 ruby '1.9.3'
 gem 'rails', '3.2.11'
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'uglifier', '>= 1.0.3'
-  gem 'zurb-foundation'
-  gem 'compass-rails'
-end
 gem 'jquery-rails'
 gem "mongoid", ">= 3.0.19"
 gem "rspec-rails", ">= 2.12.2", :group => [:development, :test]
@@ -34,6 +27,13 @@ gem 'kaminari'
 gem 'rails3-jquery-autocomplete', :git => 'git://github.com/edsimpson/rails3-jquery-autocomplete.git'
 gem 'nifty-generators'
 
+group :assets do
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
+  gem 'uglifier', '>= 1.0.3'
+  gem 'zurb-foundation'
+  gem 'compass-rails'
+end
 
 group :development do
   gem 'meta_request'
