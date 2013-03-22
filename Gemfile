@@ -36,6 +36,6 @@ gem 'nifty-generators'
 
 
 group :development do
-    gem 'meta_request'
-    gem 'colored'
+  gem 'meta_request'
+  gem 'colored'
 end

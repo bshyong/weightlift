@@ -7,8 +7,8 @@ class HomeController < ApplicationController
 
   def index
     if signed_in?
-        @user = current_user
-        @reps = current_user.reps.recent.limit(5)
+      @user = current_user
+      @reps = current_user.unique_lifts
     end
   end
 

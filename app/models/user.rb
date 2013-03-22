@@ -79,4 +79,22 @@ class User
     lifts.sort{|a,b| b[1] <=> a[1]}.take(limit)
   end
 
+  def unique_lifts(limit = 0)
+    raise "Parameter must be an Integer!" unless limit.kind_of? Integer
+    lifts = Array.new
+    self.reps.distinct(:lift_id).each do |x|
+      r = Rep.new(
+            lift_id: x,
+            count: self.reps.where(lift_id: x).max(:count),
+            weight: self.reps.where(lift_id: x).max(:weight),
+            created_at: self.reps.where(lift_id: x).max(:created_at)
+          )
+      r.total_weight = r.count*r.weight
+      lifts << r
+    end
+    result = lifts.sort{|a,b| b.created_at <=> a.created_at}
+    return result if limit == 0
+    return result.take(limit) if limit > 0
+  end
+
 end
