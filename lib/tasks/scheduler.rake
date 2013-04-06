@@ -6,8 +6,9 @@ task :eliminate_duplicate_lift_names => :environment do
   unique_names.each do |n|
     # store all reps with same lift names
     reps = []
+    lr = Lift.new
     # identify lift name with most reps
-    Lift.where('LOWER(name) = ?', n).each do |l|
+    Lift.where(name: /^#{n}$/i).each do |l|
       reps << l.reps
       lr ||= l
       lr = (lr.reps.count > l.reps.count ? lr : l)
