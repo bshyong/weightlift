@@ -15,4 +15,10 @@ task :eliminate_duplicate_lift_names => :environment do
     end
     lr.reps << reps
   end
+
+  # destroy Lifts with no reps
+  Lift.all.each do |lift|
+    lift.destroy if lift.reps.blank?
+  end
+
 end
