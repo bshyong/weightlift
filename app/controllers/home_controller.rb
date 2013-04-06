@@ -15,7 +15,7 @@ class HomeController < ApplicationController
   def track
     begin
       @user = current_user
-      @reps = current_user.reps.recent.limit(5)
+      @reps = current_user.unique_lifts
       name = params[:name]
       raise "Name cannot be blank!" if name.blank?
       count = Integer(params[:count])
