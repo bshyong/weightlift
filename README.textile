@@ -2,10 +2,11 @@ h1. Move Mountains
 
 Weight lift tracking app built on Rails with MongoDB
 
-h3. Demo on Heroku
-* http://movemountains.herokuapp.com/
-h3. Ben's user profile on the demo app
-* http://movemountains.herokuapp.com/users/ben
+**Demo on Heroku**
+http://movemountains.herokuapp.com/
+
+**Ben's user profile on the demo app**
+http://movemountains.herokuapp.com/users/ben
 
 
 * "Devise":http://github.com/plataformatec/devise gives you ready-made authentication and user management.
